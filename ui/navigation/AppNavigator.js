@@ -19,6 +19,7 @@ const defaultScreenOptions = {
     headerTintColor: Colors.WHITE,
     headerTitleStyle: {
       alignSelf:'center',
+      fontFamily:'MontserratRegular',
       textShadowColor: Colors.PRIMARY, 
       textShadowOffset: { width: 0.5, height: 0.5 }, 
       textShadowRadius: 1,

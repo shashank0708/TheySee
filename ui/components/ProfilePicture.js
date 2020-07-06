@@ -6,7 +6,7 @@ import Colors from '../../constants/colors'
 const ProfilePicture = ({picture}) => {
     return (
         <View style={styles.container}>
-            <Image style={styles.profile} source={require('../../resources/profile.jpeg')} />
+            <Image style={styles.profile} source={{uri:picture}} />
         </View>
     )
 

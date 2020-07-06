@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
       textShadowColor: Colors.GREY,
       textShadowOffset: { width: 0.5, height: 0.5 },
       textShadowRadius: 1,
+      fontFamily:'MontserratRegular'
     }
   });
 
