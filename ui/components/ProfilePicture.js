@@ -2,12 +2,13 @@ import React from 'react'
 import { View, Image, StyleSheet } from 'react-native'
 
 import Colors from '../../constants/colors'
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 
-const ProfilePicture = ({picture}) => {
+const ProfilePicture = ({ picture, onPress, style }) => {
     return (
-        <View style={styles.container}>
-            <Image style={styles.profile} source={{uri:picture}} />
-        </View>
+        <TouchableWithoutFeedback style={styles.container} onPress={onPress}>
+            <Image style={{...styles.profile, ...style}} source={{ uri: picture }} />
+        </TouchableWithoutFeedback>
     )
 
 }
@@ -18,12 +19,9 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     profile: {
-        height: 30,
-        width: 30,
-        borderRadius: 24,
         borderColor: Colors.GREY,
         borderWidth: 2,
         margin: 10
-      },
+    },
 })
 export default ProfilePicture

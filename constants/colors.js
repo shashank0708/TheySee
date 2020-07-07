@@ -3,5 +3,6 @@ export default {
      PRIMARY : '#f15025',
      ACCENT : '#7d83ff',
      WHITE : '#ffffff',
-     GREY : '#e6e8e6'
+     GREY : '#e6e8e6',
+     TRANSLUCENT:'#FFFFFF90',
 }
