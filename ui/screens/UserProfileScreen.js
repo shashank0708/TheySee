@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useLayoutEffect } from 'react'
 import { View, Image, StyleSheet, ImageBackground, FlatList, Dimensions } from 'react-native'
 import Colors from '../../constants/colors'
 import Text from '../tools/Text'
 import { TouchableNativeFeedback } from 'react-native-gesture-handler'
+
+import { HeaderButtons, Item } from 'react-navigation-header-buttons'
+import HeaderButton from '../tools/HeaderButton'
 
 import { userVideos } from '../../resources/data'
 
@@ -17,6 +20,22 @@ const UserProfileScreen = ({ navigation, route }) => {
 
     navigation.setOptions({ title: '' })
 
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerRight: () => (
+                <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                    <Item
+                        title="Menu"
+                        iconName={Platform.OS === 'ios' ? 'ios-more' : 'md-more'}
+                        iconSize={23}
+                        color={Colors.GREY}
+                        onPress={() => {
+                            navigation.openDrawer()
+                        }} />
+                </HeaderButtons>
+            )
+        });
+    })
 
     const followHandler = () => {
         setIsFollowing(!isFollowing)
@@ -49,7 +68,7 @@ const UserProfileScreen = ({ navigation, route }) => {
                             <Text style={styles.buttonText}>{isFollowing ? 'Following' : 'Follow'}</Text>
                         </TouchableNativeFeedback>
                     </View>
-                    
+
                     <View style={{ flex: 1 }} />
                     <View style={styles.infoContainer}>
 
@@ -79,11 +98,11 @@ const styles = StyleSheet.create({
     gridItem: {
         width: width / 2,
         height: height / 3,
-        margin:4
+        margin: 4
     },
     gridImage: {
         flex: 1,
-        padding:10
+        padding: 10
     },
     buttonContainer: {
         borderColor: Colors.GREY,

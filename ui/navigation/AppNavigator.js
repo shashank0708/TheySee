@@ -4,8 +4,13 @@ import { Platform } from 'react-native';
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 
+import TestScreen from '../screens/TestScreen'
+
 import MainScreen from '../screens/MainScreen'
 import UserProfileScreen from '../screens/UserProfileScreen'
+import CameraScreen from '../screens/CameraScreen'
+
+
 import Colors from '../../constants/colors'
 
 const MainNavigator = createStackNavigator()
@@ -30,6 +35,8 @@ const Main = () => {
         <NavigationContainer>
             <MainNavigator.Navigator
                 screenOptions={defaultScreenOptions}>
+                <MainNavigator.Screen name='Test' component={TestScreen} options={{ title: '' }} />
+                <MainNavigator.Screen name='Camera' component={CameraScreen} options={{ title: '' }} />
                 <MainNavigator.Screen name='Main' component={MainScreen} options={{ title: '@shhshank' }} />
                 <MainNavigator.Screen name='UserProfile' component={UserProfileScreen} options={{ title: '@shhshank' }} />
             </MainNavigator.Navigator>
